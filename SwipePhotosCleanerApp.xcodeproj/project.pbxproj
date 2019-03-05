@@ -22,6 +22,8 @@
 		CCE5A153222F2E5100D5EA9D /* CustomViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A150222F2E5100D5EA9D /* CustomViewBase.swift */; };
 		CCE5A157222F2E5800D5EA9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A155222F2E5800D5EA9D /* MainViewController.swift */; };
 		CCE5A158222F2E5800D5EA9D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */; };
+		CCE5A15D222F32A300D5EA9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A15C222F32A300D5EA9D /* ViewController.swift */; };
+		CCE5A15F222F32A800D5EA9D /* SubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A15E222F32A700D5EA9D /* SubViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		CCE5A150222F2E5100D5EA9D /* CustomViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewBase.swift; sourceTree = "<group>"; };
 		CCE5A155222F2E5800D5EA9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		CCE5A15C222F32A300D5EA9D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CCE5A15E222F32A700D5EA9D /* SubViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +88,7 @@
 				CCE5A14C222F2E5100D5EA9D /* View */,
 				CCE5A154222F2E5800D5EA9D /* ViewController */,
 				CCE5A12E222F2D0F00D5EA9D /* LaunchScreen.storyboard */,
+				CCE5A15B222F329100D5EA9D /* PhotoDeleteApp */,
 			);
 			path = SwipePhotosCleanerApp;
 			sourceTree = "<group>";
@@ -148,6 +153,15 @@
 				CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		CCE5A15B222F329100D5EA9D /* PhotoDeleteApp */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A15E222F32A700D5EA9D /* SubViewController.swift */,
+				CCE5A15C222F32A300D5EA9D /* ViewController.swift */,
+			);
+			path = PhotoDeleteApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,7 +240,9 @@
 				CCE5A144222F2E2D00D5EA9D /* UIColorExtention.swift in Sources */,
 				CCE5A152222F2E5100D5EA9D /* ItemCardView.swift in Sources */,
 				CCE5A143222F2E2D00D5EA9D /* IntExtention.swift in Sources */,
+				CCE5A15F222F32A800D5EA9D /* SubViewController.swift in Sources */,
 				CCE5A145222F2E2D00D5EA9D /* UIViewControllerExtension.swift in Sources */,
+				CCE5A15D222F32A300D5EA9D /* ViewController.swift in Sources */,
 				CCE5A148222F2E3D00D5EA9D /* TravelModel.swift in Sources */,
 				CCE5A14B222F2E4D00D5EA9D /* TravelPresenter.swift in Sources */,
 				CCE5A153222F2E5100D5EA9D /* CustomViewBase.swift in Sources */,
