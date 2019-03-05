@@ -8,20 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		CCE5A126222F2D0E00D5EA9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A125222F2D0E00D5EA9D /* AppDelegate.swift */; };
-		CCE5A128222F2D0E00D5EA9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A127222F2D0E00D5EA9D /* ViewController.swift */; };
-		CCE5A12B222F2D0E00D5EA9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A129222F2D0E00D5EA9D /* Main.storyboard */; };
 		CCE5A12D222F2D0F00D5EA9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A12C222F2D0F00D5EA9D /* Assets.xcassets */; };
 		CCE5A130222F2D0F00D5EA9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A12E222F2D0F00D5EA9D /* LaunchScreen.storyboard */; };
+		CCE5A13D222F2E1300D5EA9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A13A222F2E1300D5EA9D /* Main.storyboard */; };
+		CCE5A13E222F2E1300D5EA9D /* Photo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A13C222F2E1300D5EA9D /* Photo.storyboard */; };
+		CCE5A143222F2E2D00D5EA9D /* IntExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A140222F2E2D00D5EA9D /* IntExtention.swift */; };
+		CCE5A144222F2E2D00D5EA9D /* UIColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A141222F2E2D00D5EA9D /* UIColorExtention.swift */; };
+		CCE5A145222F2E2D00D5EA9D /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A142222F2E2D00D5EA9D /* UIViewControllerExtension.swift */; };
+		CCE5A148222F2E3D00D5EA9D /* TravelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A147222F2E3D00D5EA9D /* TravelModel.swift */; };
+		CCE5A14B222F2E4D00D5EA9D /* TravelPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A14A222F2E4D00D5EA9D /* TravelPresenter.swift */; };
+		CCE5A151222F2E5100D5EA9D /* ItemCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CCE5A14E222F2E5100D5EA9D /* ItemCardView.xib */; };
+		CCE5A152222F2E5100D5EA9D /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A14F222F2E5100D5EA9D /* ItemCardView.swift */; };
+		CCE5A153222F2E5100D5EA9D /* CustomViewBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A150222F2E5100D5EA9D /* CustomViewBase.swift */; };
+		CCE5A157222F2E5800D5EA9D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A155222F2E5800D5EA9D /* MainViewController.swift */; };
+		CCE5A158222F2E5800D5EA9D /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CCE5A122222F2D0E00D5EA9D /* SwipePhotosCleanerApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwipePhotosCleanerApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE5A125222F2D0E00D5EA9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CCE5A127222F2D0E00D5EA9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CCE5A12A222F2D0E00D5EA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCE5A12C222F2D0F00D5EA9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCE5A12F222F2D0F00D5EA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCE5A131222F2D0F00D5EA9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCE5A13B222F2E1300D5EA9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CCE5A13C222F2E1300D5EA9D /* Photo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Photo.storyboard; sourceTree = "<group>"; };
+		CCE5A140222F2E2D00D5EA9D /* IntExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntExtention.swift; sourceTree = "<group>"; };
+		CCE5A141222F2E2D00D5EA9D /* UIColorExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtention.swift; sourceTree = "<group>"; };
+		CCE5A142222F2E2D00D5EA9D /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		CCE5A147222F2E3D00D5EA9D /* TravelModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelModel.swift; sourceTree = "<group>"; };
+		CCE5A14A222F2E4D00D5EA9D /* TravelPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TravelPresenter.swift; sourceTree = "<group>"; };
+		CCE5A14E222F2E5100D5EA9D /* ItemCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemCardView.xib; sourceTree = "<group>"; };
+		CCE5A14F222F2E5100D5EA9D /* ItemCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
+		CCE5A150222F2E5100D5EA9D /* CustomViewBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomViewBase.swift; sourceTree = "<group>"; };
+		CCE5A155222F2E5800D5EA9D /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +75,79 @@
 			isa = PBXGroup;
 			children = (
 				CCE5A125222F2D0E00D5EA9D /* AppDelegate.swift */,
-				CCE5A127222F2D0E00D5EA9D /* ViewController.swift */,
-				CCE5A129222F2D0E00D5EA9D /* Main.storyboard */,
-				CCE5A12C222F2D0F00D5EA9D /* Assets.xcassets */,
-				CCE5A12E222F2D0F00D5EA9D /* LaunchScreen.storyboard */,
 				CCE5A131222F2D0F00D5EA9D /* Info.plist */,
+				CCE5A139222F2E1300D5EA9D /* Storyboard */,
+				CCE5A12C222F2D0F00D5EA9D /* Assets.xcassets */,
+				CCE5A13F222F2E2D00D5EA9D /* Extention */,
+				CCE5A146222F2E3D00D5EA9D /* Model */,
+				CCE5A149222F2E4D00D5EA9D /* Presenter */,
+				CCE5A14C222F2E5100D5EA9D /* View */,
+				CCE5A154222F2E5800D5EA9D /* ViewController */,
+				CCE5A12E222F2D0F00D5EA9D /* LaunchScreen.storyboard */,
 			);
 			path = SwipePhotosCleanerApp;
+			sourceTree = "<group>";
+		};
+		CCE5A139222F2E1300D5EA9D /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A13A222F2E1300D5EA9D /* Main.storyboard */,
+				CCE5A13C222F2E1300D5EA9D /* Photo.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		CCE5A13F222F2E2D00D5EA9D /* Extention */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A140222F2E2D00D5EA9D /* IntExtention.swift */,
+				CCE5A141222F2E2D00D5EA9D /* UIColorExtention.swift */,
+				CCE5A142222F2E2D00D5EA9D /* UIViewControllerExtension.swift */,
+			);
+			path = Extention;
+			sourceTree = "<group>";
+		};
+		CCE5A146222F2E3D00D5EA9D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A147222F2E3D00D5EA9D /* TravelModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CCE5A149222F2E4D00D5EA9D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A14A222F2E4D00D5EA9D /* TravelPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		CCE5A14C222F2E5100D5EA9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A14D222F2E5100D5EA9D /* ItemCardView */,
+				CCE5A150222F2E5100D5EA9D /* CustomViewBase.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CCE5A14D222F2E5100D5EA9D /* ItemCardView */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A14E222F2E5100D5EA9D /* ItemCardView.xib */,
+				CCE5A14F222F2E5100D5EA9D /* ItemCardView.swift */,
+			);
+			path = ItemCardView;
+			sourceTree = "<group>";
+		};
+		CCE5A154222F2E5800D5EA9D /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CCE5A155222F2E5800D5EA9D /* MainViewController.swift */,
+				CCE5A156222F2E5800D5EA9D /* PhotoViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +209,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE5A130222F2D0F00D5EA9D /* LaunchScreen.storyboard in Resources */,
+				CCE5A151222F2E5100D5EA9D /* ItemCardView.xib in Resources */,
 				CCE5A12D222F2D0F00D5EA9D /* Assets.xcassets in Resources */,
-				CCE5A12B222F2D0E00D5EA9D /* Main.storyboard in Resources */,
+				CCE5A13E222F2E1300D5EA9D /* Photo.storyboard in Resources */,
+				CCE5A13D222F2E1300D5EA9D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,28 +223,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCE5A128222F2D0E00D5EA9D /* ViewController.swift in Sources */,
+				CCE5A144222F2E2D00D5EA9D /* UIColorExtention.swift in Sources */,
+				CCE5A152222F2E5100D5EA9D /* ItemCardView.swift in Sources */,
+				CCE5A143222F2E2D00D5EA9D /* IntExtention.swift in Sources */,
+				CCE5A145222F2E2D00D5EA9D /* UIViewControllerExtension.swift in Sources */,
+				CCE5A148222F2E3D00D5EA9D /* TravelModel.swift in Sources */,
+				CCE5A14B222F2E4D00D5EA9D /* TravelPresenter.swift in Sources */,
+				CCE5A153222F2E5100D5EA9D /* CustomViewBase.swift in Sources */,
 				CCE5A126222F2D0E00D5EA9D /* AppDelegate.swift in Sources */,
+				CCE5A157222F2E5800D5EA9D /* MainViewController.swift in Sources */,
+				CCE5A158222F2E5800D5EA9D /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CCE5A129222F2D0E00D5EA9D /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CCE5A12A222F2D0E00D5EA9D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CCE5A12E222F2D0F00D5EA9D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CCE5A12F222F2D0F00D5EA9D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CCE5A13A222F2E1300D5EA9D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CCE5A13B222F2E1300D5EA9D /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
