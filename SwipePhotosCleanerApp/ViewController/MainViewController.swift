@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class MainViewController: UIViewController {
     
@@ -16,12 +17,35 @@ class MainViewController: UIViewController {
     // TravelPresenterに設定したプロトコルを適用するための変数
     private var presenter: TravelPresenter!
     
+    var photoAssets = [PHAsset]()
+    
+    var selectedImage: PHAsset?
+    var removeInt: Int!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupNavigationController()
-        setupTravelPresenter()
+        getAllPhotosInfo()
+        addItemCardViews(photosAssets: photoAssets)
     }
+    
+    //画像を全て取得する
+    private func getAllPhotosInfo() {
+        photoAssets = []
+        // 画像をすべて取得
+        var assets: PHFetchResult = PHAsset.fetchAssets(with: .image, options: nil)
+        assets.enumerateObjects { (asset, index, stop) -> Void in
+            
+            if index < 10 {
+               self.photoAssets.append(asset as PHAsset)
+                print("did append!")
+                print("index : \(index)")
+            }
+        }
+        print(photoAssets)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,11 +71,11 @@ class MainViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
-    // Presenterとの接続に関する設定を行う
-    private func setupTravelPresenter() {
-        presenter = TravelPresenter(presenter: self)
-        presenter.getTravelModels()
-    }
+//    // Presenterとの接続に関する設定を行う
+//    private func setupTravelPresenter() {
+//        presenter = TravelPresenter(presenter: self)
+//        presenter.getTravelModels()
+//    }
     
     // UIAlertViewControllerのポップアップ共通化を行う
     private func showAlertControllerWith(title: String, message: String) {
@@ -63,9 +87,9 @@ class MainViewController: UIViewController {
     }
     
     // 画面上にカード表示用のViewを追加 ＆ 付随した処理を行う
-    private func addItemCardViews(_ travelModels: [TravelModel]) {
+    private func addItemCardViews(photosAssets: [PHAsset]) {
         
-        for index in 0..<travelModels.count {
+        for index in 0..<photoAssets.count {
             
             // Debug.
             //print(travelModels[index])
@@ -73,7 +97,7 @@ class MainViewController: UIViewController {
             // ItemCardViewのインスタンスを作成してプロトコル宣言やタッチイベント等の初期設定を行う
             let itemCardView = ItemCardView()
             itemCardView.delegate = self
-            itemCardView.setModelData(travelModels[index])
+            itemCardView.setModelData(photosAssets: photoAssets[index])
             itemCardView.largeImageButtonTappedHandler = {
                 
                 // 画像の拡大縮小が可能な画面へ遷移する
@@ -81,7 +105,7 @@ class MainViewController: UIViewController {
                 print("storyboard: \(storyboard)")
                 let controller = storyboard.instantiateInitialViewController() as! PhotoViewController
                 
-                controller.setTargetTravelModel(travelModels[index])
+                controller.setTargetPhotosAssets(photosAssets: photosAssets[index])
                 controller.modalPresentationStyle = .overFullScreen
                 controller.modalTransitionStyle   = .crossDissolve
                 
@@ -138,17 +162,16 @@ class MainViewController: UIViewController {
 
 // MARK: - TravelPresenterProtocol
 
-extension MainViewController: TravelPresenterProtocol {
+extension MainViewController {
     
     // Presenterでデータ取得処理を実行した際に行われる処理
-    func bindTravelModels(_ travelModels: [TravelModel]) {
-        
+    func resetPhotos() {
         // 表示用のViewを格納するための配列「itemCardViewList」が空なら追加する
         if itemCardViewList.count > 0 {
             showAlertControllerWith(title: "まだカードが残っています", message: "画面からカードがなくなったら、\n再度追加をお願いします。\n※サンプルデータ計8件")
             return
         } else {
-            addItemCardViews(travelModels)
+            addItemCardViews(photosAssets: photoAssets)
         }
     }
 }

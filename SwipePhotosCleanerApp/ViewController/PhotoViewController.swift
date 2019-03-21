@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import Photos
 
 class PhotoViewController: UIViewController {
     
-    private var targetTravelModel: TravelModel!
+    private var targetPhotosAssets: PHAsset?
     
     @IBOutlet weak private var photoScrollView: UIScrollView!
     @IBOutlet weak private var photoImageView: UIImageView!
@@ -30,7 +31,7 @@ class PhotoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupPhotoScrollView()
+        //setupPhotoScrollView()
         setupPhotoHeaderView()
     }
     
@@ -40,8 +41,8 @@ class PhotoViewController: UIViewController {
     
     // MARK: - Function
     
-    func setTargetTravelModel(_ travelModel: TravelModel) {
-        targetTravelModel = travelModel
+    func setTargetPhotosAssets(photosAssets: PHAsset) {
+        targetPhotosAssets = photosAssets
     }
     
     // MARK: - Private Function
@@ -51,14 +52,20 @@ class PhotoViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
-    private func setupPhotoScrollView() {
+    private func setupPhotoScrollView(photosAssets: PHAsset) {
         photoScrollView.delegate = self
-        photoImageView.image = targetTravelModel.image
+        //画像を表示
+        let manager: PHImageManager = PHImageManager()
+        manager.requestImage(for: photosAssets,
+                             targetSize: CGSize(width: 70, height: 70),
+                             contentMode: .aspectFill,
+                             options: nil) { (image, info) -> Void in
+                                self.photoImageView.image = image
+        }
         initializePhotoImageViewScale(self.view.bounds.size)
     }
     
     private func setupPhotoHeaderView() {
-        photoTitleLabel.text = targetTravelModel.title
         photoCloseButton.addTarget(self, action: #selector(self.closeButtonTapped), for: .touchUpInside)
     }
     

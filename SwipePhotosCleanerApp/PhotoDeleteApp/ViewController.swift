@@ -8,7 +8,6 @@
 
 import UIKit
 import Photos
-import Intents
 
 protocol UIViewControllerDelegate {
     func deletePhotos()
@@ -23,11 +22,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        getAllPhotosInfo()
+    }
     
     //画像を全て取得する
     private func getAllPhotosInfo() {
         photoAssets = []
-        
         // 画像をすべて取得
         var assets: PHFetchResult = PHAsset.fetchAssets(with: .image, options: nil)
         assets.enumerateObjects { (asset, index, stop) -> Void in
@@ -37,14 +40,32 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         print(photoAssets)
     }
     
+    //写真削除
+    func deletePhotos() {
+        if selectedImage != nil {
+            PHPhotoLibrary.shared().performChanges({ () -> Void in
+                // 削除などの変更はこのblocks内でリクエストする
+                PHAssetChangeRequest.deleteAssets([self.selectedImage!] as NSFastEnumeration)
+                
+            }, completionHandler: { (success, error) -> Void in
+                if (success) {
+                    print("success!")
+                    self.dismiss(animated: true, completion: {
+                        self.updateCollectionView()
+                    })
+                } else {
+                    print("error!")
+                }
+            })
+        }
+    }
     
+    //MARK: - CollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //コレクションビューから識別子「TestCell」のセルを取得する。
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TestCell", for: indexPath) as UICollectionViewCell
-        
         let imageView = cell.contentView.viewWithTag(1) as! UIImageView
-        
         
         //画像を表示
         let manager: PHImageManager = PHImageManager()
@@ -54,18 +75,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                              options: nil) { (image, info) -> Void in
                                 imageView.image = image
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photoAssets.count
-    }
-    
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // section数は１つ
-        return 1
     }
     
     // UICollectionViewDelegateFlowLayoutの設定が必要
@@ -97,38 +111,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             subVC.uiViewControllerDelegate = self
         }
     }
-    
-    func deletePhotos() {
-        
-        if selectedImage != nil {
-            PHPhotoLibrary.shared().performChanges({ () -> Void in
-                // 削除などの変更はこのblocks内でリクエストする
-                PHAssetChangeRequest.deleteAssets([self.selectedImage!] as NSFastEnumeration)
-                
-            }, completionHandler: { (success, error) -> Void in
-                
-                if (success) {
-                    print("success!")
-                    
-                    self.dismiss(animated: true, completion: {
-                        self.updateCollectionView()
-                    })
-                    
-                } else {
-                    print("error!")
-                }
-                
-            })
-        }
-    }
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        getAllPhotosInfo()
-    }
-    
     
     func updateCollectionView() {
         

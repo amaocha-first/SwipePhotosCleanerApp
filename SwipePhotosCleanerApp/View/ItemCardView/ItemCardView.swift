@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Photos
 
 protocol ItemCardDelegate: NSObjectProtocol {
     
@@ -62,15 +63,11 @@ class ItemCardView: CustomViewBase {
     private let afterInitializeScale: CGFloat = 1.00
     
     //Presenterから取得したデータを反映させるUI部品
-    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    @IBOutlet weak var publishedLabel: UILabel!
-    @IBOutlet weak var accessLabel: UILabel!
-    @IBOutlet weak var budgetLabel: UILabel!
-    @IBOutlet weak var messageLabel: UILabel!
     
     //拡大画像を見るボタン
     @IBOutlet weak var largeImageButton: UIButton!
+    
     
     // MARK: - Initializer
     
@@ -82,16 +79,18 @@ class ItemCardView: CustomViewBase {
     
     // MARK: - Function
     
-    func setModelData(_ travel: TravelModel) {
-        thumbnailImageView.image         = travel.image
+    func setModelData(photosAssets: PHAsset) {
+        
+        //画像を表示
+        let manager: PHImageManager = PHImageManager()
+        manager.requestImage(for: photosAssets,
+                             targetSize: CGSize(width: self.thumbnailImageView.bounds.width, height: self.thumbnailImageView.bounds.height),
+                             contentMode: .aspectFill,
+                             options: nil) { (image, info) -> Void in
+                                self.thumbnailImageView.image = image
+        }
         thumbnailImageView.contentMode   = .scaleAspectFill
         thumbnailImageView.clipsToBounds = true
-        
-        titleLabel.text          = travel.title
-        publishedLabel.text      = travel.published
-        accessLabel.text         = travel.access
-        budgetLabel.text         = travel.budget
-        messageLabel.text        = travel.message
     }
     
     // MARK: - Private Function
@@ -123,10 +122,6 @@ class ItemCardView: CustomViewBase {
             // ItemCardDelegateのbeganDraggingを実行する
             self.delegate?.beganDragging()
             
-            // Debug.
-            //print("beganCenterX:", originalPoint.x)
-            //print("beganCenterY:", originalPoint.y)
-            
             // ドラッグ処理開始時のViewのアルファ値を変更する
             UIView.animate(withDuration: 0.26, delay: 0.0, options: [.curveEaseInOut], animations: {
                 self.alpha = 0.96
@@ -152,10 +147,6 @@ class ItemCardView: CustomViewBase {
             
             // 中心位置からのY軸方向へ何パーセント移動したか（移動割合）を計算する
             currentMoveYPercentFromCenter = min(yPositionFromCenter / UIScreen.main.bounds.size.height, 1)
-            
-            // Debug.
-            //print("currentMoveXPercentFromCenter:", currentMoveXPercentFromCenter)
-            //print("currentMoveYPercentFromCenter:", currentMoveYPercentFromCenter)
             
             // 上記で算出したX軸方向の移動割合から回転量を取得し、初期配置時の回転量へ加算した値でアファイン変換を適用する
             let initialRotationAngle = atan2(initialTransform.b, initialTransform.a)
@@ -325,3 +316,19 @@ class ItemCardView: CustomViewBase {
     }
 }
 
+extension UIImage {
+    func resize(size _size: CGSize) -> UIImage? {
+        let widthRatio = _size.width / size.width
+        let heightRatio = _size.height / size.height
+        let ratio = widthRatio < heightRatio ? widthRatio : heightRatio
+        
+        let resizedSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        
+        UIGraphicsBeginImageContextWithOptions(resizedSize, false, 0.0) // 変更
+        draw(in: CGRect(origin: .zero, size: resizedSize))
+        let resizedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return resizedImage
+    }
+}
